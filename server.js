@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('require');
+const mongoose = require('mongoose');
 
 // instance of express
 const app = express()
@@ -18,9 +18,9 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
-app.post('/shortUrls', (req, res)) => {
+app.post('/shortUrls', (req, res) => {
 
-}
+})
 
 // set up server on port
-app.listen(process.env.PORT || 8081);
+app.listen(process.env.PORT || 8082);
