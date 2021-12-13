@@ -1,7 +1,14 @@
 const express = require('express');
+const mongoose = require('require');
 
 // instance of express
 const app = express()
+
+// connect to mongoDB
+mongoose.connect('mongodb://localhost/minimeShortener', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 app.set('view engine', 'ejs')
 
@@ -11,5 +18,9 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
+app.post('/shortUrls', (req, res)) => {
+
+}
+
 // set up server on port
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8081);

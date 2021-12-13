@@ -12,38 +12,48 @@
 </head>
 
 <body>
-    <h1>Make My Links Shorter than Mini-Me</h1>
-    <img src="../views/minimie.png" alt="mini me Austin Powers">
-    <form action="" method="POST">
-        <label for="longURL">Enter URL</label>
-        <input type="url" name="longURL" id="longURL">
-        <button type="submit">Eeeee MINImiseMe</button>
-    </form>
+    <div class="container">
 
-    <table>
-        <thead>
-            <tr>
-                <th>Long URL</th>
-                <th>Mini URL</th>
-                <th>Clicks</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><a
-                        href="https://github.com/codewurld/shorten-url-app">https://github.com/codewurld/shorten-url-app</a>
-                </td>
+        <h1>Make My Links Shorter than Mini-Me</h1>
+        <img src="../views/minimie.png" alt="mini me Austin Powers">
+        <!-- bootstrap styling add margin top & bottom on entire form  -->
+        <!-- connect form to route with action -->
+        <form action="/shortUrls" method="POST" class="my-4 form-inline ">
+            <!-- make label class visible only for users with screen readers for accessibility purposes -->
+            <label for="longURL" class="sr-only sr-only-focusable">Enter URL</label>
+            <!-- add margin right to input -->
+            <!-- remove default form setting -->
+            <input required placeholder="Enter URL" type="url" name="longURL" id="longURL"
+                class="form-control col mr-2">
+            <button class="btn btn-danger" type="submit">Eeeee MINImiseME</button>
+        </form>
 
-                <td><a href="/123456">123456</a>
-                </td>
-                <td>15
-                </td>
+        <!-- style table using bootstrap table-striped property -->
+        <table class="table table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>Long URL</th>
+                    <th>Mini URL</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a
+                            href="https://github.com/codewurld/shorten-url-app">https://github.com/codewurld/shorten-url-app</a>
+                    </td>
 
-                <!-- <td><a href="https://www.linkedin.com/company/nearst-/">https://www.linkedin.com/company/nearst-/</a>
+                    <td><a href="/123456">123456</a>
+                    </td>
+                    <td>15
+                    </td>
+
+                    <!-- <td><a href="https://www.linkedin.com/company/nearst-/">https://www.linkedin.com/company/nearst-/</a>
                 </td> -->
-            </tr>
-        </tbody>
-    </table>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
