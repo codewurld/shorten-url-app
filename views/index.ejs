@@ -37,20 +37,26 @@
                     <th>Clicks</th>
                 </tr>
             </thead>
+            <!-- loop through each url in miniMeUrl -->
             <tbody>
-                <tr>
-                    <td><a
-                            href="https://github.com/codewurld/shorten-url-app">https://github.com/codewurld/shorten-url-app</a>
-                    </td>
+                <% miniMeUrls.forEach(miniMeUrl=> { %>
+                    <tr>
+                        <td><a href="<%= miniMeUrl.fullLink %>">
+                                <%= miniMeUrl.fullLink %>
+                            </a>
+                        </td>
 
-                    <td><a href="/123456">123456</a>
-                    </td>
-                    <td>15
-                    </td>
+                        <td><a href="<%= miniMeUrl.shortLink %>">
+                                <%= miniMeUrl.shortLink %>
+                            </a>
+                        </td>
+                        <td>
+                            <%= miniMeUrl.clicks %>
+                        </td>
 
-                    <!-- <td><a href="https://www.linkedin.com/company/nearst-/">https://www.linkedin.com/company/nearst-/</a>
-                </td> -->
-                </tr>
+                    </tr>
+                    <% }) %>
+
             </tbody>
         </table>
     </div>
