@@ -4,7 +4,6 @@ const miniMeUrl = require('./models/miniMeUrl')
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './config.env') });
 
-
 // instance of express
 const app = express()
 
@@ -24,6 +23,9 @@ connectDB();
 
 app.set('view engine', 'ejs');
 
+// access images and static files
+app.use(express.static("views"));
+
 // give express access to url parameters
 app.use(express.urlencoded({ extended: false }))
 
@@ -41,6 +43,27 @@ app.get('/', async (req, res) => {
 app.post('/shortUrls', async (req, res) => {
     await miniMeUrl.create({ fullLink: req.body.longURL })
     res.redirect('/')
+})
+
+// find shortened url id from end of localhost address when clicked 
+// save to variable and update shortLink property in schema
+// if no shortened url, return error
+// else update click count and save
+// then redirect user to page of full link
+
+app.get('/:shortUrl', async (req, res) => {
+    const shortUrl = await miniMeUrl.findOne({
+        shortLink: req.params.shortUrl
+    })
+
+    if (shortUrl == null) {
+        return res.sendStatus(404)
+    }
+
+    shortUrl.clicks++
+    shortUrl.save()
+
+    res.redirect(shortUrl.fullLink)
 })
 
 // set up server on port
