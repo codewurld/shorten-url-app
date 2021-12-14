@@ -67,4 +67,4 @@ app.get('/:shortUrl', async (req, res) => {
 })
 
 // set up server on port
-app.listen(1337);
+app.listen(process.env.PORT || 1337);
