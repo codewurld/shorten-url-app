@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const miniMeUrl = require('./models/miniMeUrl')
+const miniMeUrl = require('./models/MiniMeUrl')
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './config.env') });
 
@@ -67,4 +67,4 @@ app.get('/:shortUrl', async (req, res) => {
 })
 
 // set up server on port
-app.listen(process.env.PORT || 1337);
+app.listen(process.env.PORT || 1338);
