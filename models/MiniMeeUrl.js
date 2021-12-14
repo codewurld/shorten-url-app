@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const shortId = require('shortId');
+const shortId = require('shortid');
 
 // Database schema 
 // shortId generates new shortId and save in mini url column
