@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const ShortId = require('shortId');
+const shortId = require('shortId');
 
 // Database schema 
 // shortId generates new shortId and save in mini url column
@@ -11,7 +11,7 @@ const miniMeUrlSchema = new mongoose.Schema({
     shortLink: {
         type: String,
         required: true,
-        default: ShortId.generate
+        default: shortId.generate
     },
     clicks: {
         type: Number,
@@ -20,4 +20,4 @@ const miniMeUrlSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('MiniMeUrl', miniMeUrlSchema);
+module.exports = mongoose.model('MiniMeeUrl', miniMeUrlSchema);

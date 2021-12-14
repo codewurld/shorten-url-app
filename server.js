@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const miniMeUrl = require('./models/MiniMeUrl')
+const miniMeUrl = require('./models/MiniMeeUrl')
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './config.env') });
 
