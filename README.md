@@ -19,4 +19,8 @@ Steps:
 - Clone repo to local drive
 - Start on Server (1338) with: npm run devStart
 
+To do:
+
+- Make mobile responsive
+
 Live link here: https://mini-me-urls.herokuapp.com/
