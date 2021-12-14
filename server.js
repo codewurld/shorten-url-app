@@ -1,15 +1,26 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const miniMeUrl = require('./models/miniMeUrl')
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './config.env') });
+
 
 // instance of express
 const app = express()
 
-// connect to mongoDB
-mongoose.connect('mongodb://localhost/minimeShortener', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('MongoDB connected!!');
+    } catch (err) {
+        console.log('Failed to connect to MongoDB', err);
+    }
+};
+
+connectDB();
 
 app.set('view engine', 'ejs');
 
@@ -28,9 +39,9 @@ app.get('/', async (req, res) => {
 // create new short url using miniMeUrl model
 // redirect user back to home page after url is shortened
 app.post('/shortUrls', async (req, res) => {
-    await miniMeUrl.create({ fullLink: req.body.longUrl })
+    await miniMeUrl.create({ fullLink: req.body.longURL })
     res.redirect('/')
 })
 
 // set up server on port
-app.listen(process.env.PORT || 8083);
+app.listen(1337);
